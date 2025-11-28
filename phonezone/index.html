@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Zone</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: lightblue;
+            text-align: center;
+            color: black;
+        }
+        header {
+            background: black;
+            color: white;
+            padding: 20px;
+            font-size: 3rem;
+            border: 2px solid black;
+            font-family: 'Italianno', cursive;
+        }
+        .content p, .contact p {
+            font-family: Arial, sans-serif; /* Normal font for paragraphs */
+            font-size: 1.3rem;
+            color: darkblue;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            width: 220px;
+            height: 300px;
+            border: 2px solid white;
+            border-radius: 15px;
+            color: black;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            transition: background 0.3s;
+        }
+        .product:hover {
+            background: navy !important;
+            color: white;
+            cursor: pointer;
+        }
+        .product img {
+            width: 220px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .product h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .product p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .buttons button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: yellow;
+            color: black;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: darkgoldenrod;
+        }
+        .contact {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: black;
+        }
+        #cart-products {
+            margin-top: 10px;
+            font-weight: bold;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <header>Phone Zone</header>
+    <div class="content">
+        <p>Welcome to Phone Zone – Your one-stop shop for mobile phones and accessories!</p>
+        <p>Cart Items: <span id="cart-count">0</span></p>
+        <p id="cart-products"></p>
+    </div>
+
+    <div class="products">
+        <div class="product">
+            <img src="iphone 16promax.webp" alt="iPhone 16 Pro Max">
+            <h3>iPhone 16 Pro Max - $950</h3>
+            <p>Apple flagship phone</p>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('iPhone 16 Pro Max')">Add to Cart</button>
+                <button class="buy-now" onclick="window.location.href='buy.html'">Buy Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="s25ultra.webp" alt="Samsung S25 Ultra">
+            <h3>Samsung S24 Ultra - $900</h3>
+            <p>Samsung premium flagship</p>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Samsung S24 Ultra')">Add to Cart</button>
+                <button class="buy-now" onclick="window.location.href='buy.html'">Buy Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="one plus 12 black.png" alt="OnePlus 12">
+            <h3>OnePlus 12 - $800</h3>
+            <p>Powerful performance phone</p>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('OnePlus 12')">Add to Cart</button>
+                <button class="buy-now" onclick="window.location.href='buy.html'">Buy Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="vivo x901.png" alt="Vivo 90X">
+            <h3>Vivo 90X - $700</h3>
+            <p>Camera-focused smartphone</p>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="addToCart('Vivo 90X')">Add to Cart</button>
+                <button class="buy-now" onclick="window.location.href='buy.html'">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <p>Contact Us: <a href="mailto:support@phonezone.com">support@phonezone.com</a> | Phone: +91-123-456-7890</p>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        let cartItems = [];
+
+        function addToCart(product) {
+            cartCount++;
+            cartItems.push(product);
+            document.getElementById('cart-count').textContent = cartCount;
+            document.getElementById('cart-products').textContent = 'Products in cart: ' + cartItems.join(', ');
+            alert(product + ' added to cart!');
+        }
+    </script>
+</body>
+</html>
